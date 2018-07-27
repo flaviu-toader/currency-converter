@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -52,6 +53,7 @@ public class ConvertController {
      */
     @RequestMapping(value = "/convert", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
+    @CrossOrigin
     public ConvertResponse doConversion(
             @IsValidCurrencySymbol @RequestParam(value = "source", required = true) String sourceSymbol,
             @IsValidCurrencySymbol @RequestParam(value = "target", required = true) String targetSymbol,
